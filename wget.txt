@@ -1,0 +1,7 @@
+wget --quiet \
+  --method POST \
+  --header 'content-type: application/json' \
+  --header 'cache-control: no-cache' \
+  --body-data '{"url": "http://example.web/some_media_file.mp4"}' \
+  --output-document \
+  - https://mediabl.org/api/links/check

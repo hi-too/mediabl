@@ -1,0 +1,13 @@
+import requests
+
+url = "https://mediabl.org/api/links/check"
+
+payload = "{\"url\": \"http://example.web/some_media_file.mp4\"}"
+headers = {
+    'content-type': "application/json",
+    'cache-control': "no-cache"
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)

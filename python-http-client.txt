@@ -1,0 +1,17 @@
+import http.client
+
+conn = http.client.HTTPSConnection("mediabl.org")
+
+payload = "{\"url\": \"http://example.web/some_media_file.mp4\"}"
+
+headers = {
+    'content-type': "application/json",
+    'cache-control': "no-cache"
+    }
+
+conn.request("POST", "/api/links/check", payload, headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))

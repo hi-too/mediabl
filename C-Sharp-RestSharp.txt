@@ -1,0 +1,6 @@
+var client = new RestClient("https://mediabl.org/api/links/check");
+var request = new RestRequest(Method.POST);
+request.AddHeader("cache-control", "no-cache");
+request.AddHeader("content-type", "application/json");
+request.AddParameter("application/json", "{\"url\": \"http://example.web/some_media_file.mp4\"}", ParameterType.RequestBody);
+IRestResponse response = client.Execute(request);

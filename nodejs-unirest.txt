@@ -1,0 +1,20 @@
+var unirest = require("unirest");
+
+var req = unirest("POST", "https://mediabl.org/api/links/check");
+
+req.headers({
+  "cache-control": "no-cache",
+  "content-type": "application/json"
+});
+
+req.type("json");
+req.send({
+  "url": "http://example.web/some_media_file.mp4"
+});
+
+req.end(function (res) {
+  if (res.error) throw new Error(res.error);
+
+  console.log(res.body);
+});
+

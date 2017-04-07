@@ -1,0 +1,16 @@
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://mediabl.org/api/links/check",
+  "method": "POST",
+  "headers": {
+    "content-type": "application/json",
+    "cache-control": "no-cache"
+  },
+  "processData": false,
+  "data": "{\"url\": \"http://example.web/some_media_file.mp4\"}"
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});

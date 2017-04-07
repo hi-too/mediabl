@@ -1,0 +1,28 @@
+var http = require("https");
+
+var options = {
+  "method": "POST",
+  "hostname": "mediabl.org",
+  "port": null,
+  "path": "/api/links/check",
+  "headers": {
+    "content-type": "application/json",
+    "cache-control": "no-cache"
+  }
+};
+
+var req = http.request(options, function (res) {
+  var chunks = [];
+
+  res.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+  res.on("end", function () {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
+});
+
+req.write(JSON.stringify({ url: 'http://example.web/some_media_file.mp4' }));
+req.end();

@@ -1,0 +1,20 @@
+<?php
+
+$request = new HttpRequest();
+$request->setUrl('https://mediabl.org/api/links/check');
+$request->setMethod(HTTP_METH_POST);
+
+$request->setHeaders(array(
+  'cache-control' => 'no-cache',
+  'content-type' => 'application/json'
+));
+
+$request->setBody('{"url": "http://example.web/some_media_file.mp4"}');
+
+try {
+  $response = $request->send();
+
+  echo $response->getBody();
+} catch (HttpException $ex) {
+  echo $ex;
+}

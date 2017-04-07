@@ -1,0 +1,12 @@
+OkHttpClient client = new OkHttpClient();
+
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create(mediaType, "{\"url\": \"http://example.web/some_media_file.mp4\"}");
+Request request = new Request.Builder()
+  .url("https://mediabl.org/api/links/check")
+  .post(body)
+  .addHeader("content-type", "application/json")
+  .addHeader("cache-control", "no-cache")
+  .build();
+
+Response response = client.newCall(request).execute();

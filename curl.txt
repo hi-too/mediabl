@@ -1,0 +1,1 @@
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{"url": "http://example.web/some_media_file.mp4"}' "https://mediabl.org/api/links/check"
